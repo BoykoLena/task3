@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+<body>
+    <form>Введите любой текст:
+        <input type="text" id="myinput" name="input" size="50"/><br/>
+        <input type="button" value="Добавить" onclick="myFunction(this.form)"/>
+    </form>
+    <p id="output"></p>
+<script>
+    function myFunction (form) {
+        let output = document.querySelector('#output');
+
+        let str = form.input.value;
+        str = str.toLowerCase()
+        let substrs = str.split(" ");
+        output.innerHTML = '<ul><li>'+substrs.join('</li><li>')+'</li></ul>';
+
+        let child = document.querySelectorAll("li")
+        child[0].style.textTransform = "uppercase";
+        child[child.length - 1].style.textTransform = "lowercase";
+        child[child.length - 2].style.textTransform = "lowercase";
+
+        var patt = new RegExp("а", "g");
+        var result = str.match(patt);
+        if (result) {
+            alert("В тексте найдено " + result.length + " букв(ы) 'a'");
+        }
+        else {
+            alert("В тексте не найдено букв 'А'");
+        }           
+}
+</script>
+</body>
+</html>

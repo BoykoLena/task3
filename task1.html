@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+<body>
+<p id="demo"></p>
+<button onclick="startTimer()">Начать отсчет 30 секунд</button>
+<button onclick="stopTimer()">Остановить отсчет</button>
+<button onclick="resetTimer()">Начать отсчет заново</button>
+
+<script>
+    let n = 0;
+    let myVar;
+
+    function startTimer() {
+            if(n === 30) {
+            document.getElementById("demo").innerHTML = n + "sec";
+            }
+            else {
+                document.getElementById("demo").innerHTML = n + "sec";
+                n = n + 1;
+                myVar = setTimeout(startTimer, 1000);  
+            }      
+    }
+
+    function stopTimer() {
+        let myTime = document.querySelector("#demo");
+        myTime.classList.toggle(".new-class")
+        if(myTime.classList.contains(".new-class")) {
+            clearTimeout(myVar);
+            
+        }
+        else {
+            clearTimeout(myVar);
+            startTimer();
+        }        
+    }
+
+    function resetTimer () {
+        clearTimeout(myVar);
+        n = 0;
+        startTimer();
+    }          
+        
+</script>
+</body>
+</html>

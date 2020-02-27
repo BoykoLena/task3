@@ -15,7 +15,6 @@
         let output = document.querySelector('#output');
 
         let str = form.input.value;
-        str = str.toLowerCase()
         let substrs = str.split(" ");
         output.innerHTML = '<ul><li>'+substrs.join('</li><li>')+'</li></ul>';
 
@@ -24,7 +23,7 @@
         child[child.length - 1].style.textTransform = "lowercase";
         child[child.length - 2].style.textTransform = "lowercase";
 
-        var patt = new RegExp("а", "g");
+        var patt = new RegExp("а", "gi");
         var result = str.match(patt);
         if (result) {
             alert("В тексте найдено " + result.length + " букв(ы) 'a'");

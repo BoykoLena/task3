@@ -23,8 +23,8 @@
         child[child.length - 1].style.textTransform = "lowercase";
         child[child.length - 2].style.textTransform = "lowercase";
 
-        var patt = new RegExp("а", "gi");
-        var result = str.match(patt);
+        let patt = new RegExp("а", "gi");
+        let result = str.match(patt);
         if (result) {
             alert("В тексте найдено " + result.length + " букв(ы) 'a'");
         }

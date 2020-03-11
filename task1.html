@@ -6,35 +6,34 @@
 </head>
 <body>
 <p id="demo"></p>
-<button onclick="startTimer()">Начать отсчет 30 секунд</button>
-<button onclick="stopTimer()">Остановить отсчет</button>
+<button onclick="stopTimer()">Остановить/продолжить отсчет</button>
 <button onclick="resetTimer()">Начать отсчет заново</button>
 
 <script>
     let n = 0;
     let myVar;
+    let count = true;
 
+    startTimer();
     function startTimer() {
-            if(n === 30) {
+        if(n === 30) {
             document.getElementById("demo").innerHTML = n + "sec";
-            }
-            else {
-                document.getElementById("demo").innerHTML = n + "sec";
-                n = n + 1;
-                myVar = setTimeout(startTimer, 1000);  
-            }      
+        } else {
+            document.getElementById("demo").innerHTML = n + "sec";
+            n = n + 1;
+            myVar = setTimeout(startTimer, 1000);  
+        }          
     }
 
     function stopTimer() {
-        let myTime = document.querySelector("#demo");
-        myTime.classList.toggle(".new-class")
-        if(myTime.classList.contains(".new-class")) {
+        if(count === true) {
             clearTimeout(myVar);
+            count = false;
             
-        }
-        else {
+        } else{
             clearTimeout(myVar);
             startTimer();
+            count = true;
         }        
     }
 
@@ -42,8 +41,8 @@
         clearTimeout(myVar);
         n = 0;
         startTimer();
-    }          
-        
+        count = true;
+    }                  
 </script>
 </body>
 </html>
